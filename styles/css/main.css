@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.wrapper {
+  background-color: #ccc;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: repeat(4, 200px);
+  gap: 20px;
+  justify-content: center;
+  align-content: center;
+}
+.wrapper .jumbotron {
+  background-color: #fff;
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.wrapper .card {
+  position: relative;
+}
+.wrapper .card-img {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.wrapper .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: transform 0.3s ease-in-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 999;
+  background: repeating-linear-gradient(to left bottom, red, blue 30px);
+}
+.wrapper .card.open .card-img {
+  transform: rotateY(0);
+}
+.wrapper .card.open::before {
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=main.css.map */
